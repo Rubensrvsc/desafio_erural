@@ -11,6 +11,7 @@ class RoomController < ApplicationController
 
   def show
     @room = Room.find_by(id: params[:id])
+    @link = @room.link.split("?v=")[1].split("&")[0]
   end
 
   def invited
