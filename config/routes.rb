@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'room/index', to: 'room#index'
-  get 'room/show/:id', to: 'room#show'
+  get 'room/show/:id', to: 'room#show', as: 'show_room'
   post 'room/create', to: 'room#create'
   get 'room/new', to: 'room#new'
   post 'room/invited', to: 'room#invited'
