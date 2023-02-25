@@ -1,4 +1,5 @@
 class RoomController < ApplicationController
+  before_action :set_users, only: %i[ show ]
 
   def new
     @room = Room.new
@@ -8,6 +9,12 @@ class RoomController < ApplicationController
   end
 
   def show
+    @room = Room.find_by(id: params[:id])
+  end
+
+  def invited
+    UserRoom.create(user_id: params[:user][:id], room_id: params[:room_id])
+    redirect_to root_path
   end
 
   def create
@@ -23,5 +30,10 @@ class RoomController < ApplicationController
   private
     def room_params
       params.require(:room).permit(:number, :link)
+    end
+
+    def set_users
+      @users = User.joins(:user_rooms).where.not(users: { id: nil } ).where(user_rooms: { user_id: nil } )
+      @user = User.new
     end
 end

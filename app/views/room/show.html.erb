@@ -1,0 +1,15 @@
+<%= @room.number %>
+<%= @room.link %>
+
+
+<% if @users.present? %> 
+
+    <%= form_with(model: @user, url: room_invited_path(room_id: @room.id), method: :post) do |f| %>
+        <%= f.label :username %>
+        <%= f.collection_select(:id, @users, :id, :user_form) %>
+
+        <%= f.submit 'Criar Sala' %>
+    <% end %>
+<% end %> 
+
+
