@@ -35,7 +35,7 @@ class RoomController < ApplicationController
     end
 
     def set_users
-      @users = User.joins(:user_rooms).where.not(users: { id: nil } ).where(user_rooms: { user_id: nil } )
+      @users = User.includes(:user_rooms).where.not(users: { id: nil } ).where(user_rooms: { user_id: nil } )
       @user = User.new
     end
 end
