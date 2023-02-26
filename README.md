@@ -1,4 +1,4 @@
-## Repositorio do teste de backend na Erural
+## Repositorio do teste técnico na Erural
 
 ### Tecnologias usadas
 
