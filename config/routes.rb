@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user/new_invite', to: 'user#new_invite', as: 'new_invite'
+  post 'user/invite', to: 'user#invite', as: 'invite'
   get 'room/index', to: 'room#index'
   get 'room/show/:id', to: 'room#show', as: 'show_room'
   post 'room/create', to: 'room#create'

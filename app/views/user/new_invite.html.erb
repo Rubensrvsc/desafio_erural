@@ -1,0 +1,13 @@
+
+
+
+<%= form_with url: invite_path, method: :post do |f| %>
+        <%= f.label :Selecione_o_usuário %>
+        <%= f.collection_select(:user_id, @users, :id, :user_form) %>
+
+        <%= f.label :Selecione_a_sala %>
+        <%= f.collection_select(:room_id, @rooms, :id, :name) %>
+
+        <%= f.submit 'Convidar' %>
+<% end %>
+
