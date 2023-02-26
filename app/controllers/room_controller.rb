@@ -42,7 +42,7 @@ class RoomController < ApplicationController
 
   private
     def room_params
-      params.require(:room).permit(:number, :link)
+      params.require(:room).permit(:number, :link,:name)
     end
 
     def set_users
