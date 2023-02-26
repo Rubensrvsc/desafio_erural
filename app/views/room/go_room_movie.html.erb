@@ -1,0 +1,13 @@
+<%= form_with url: movie_path, method: :post do |form| %>
+
+  <%= form.label :Nome_do_usuário %>:
+  <%= form.text_field :user_name, class: "form-control", required: true %>
+
+  <%= form.label :Email_do_usuário %>:
+  <%= form.text_field :user_email, class: "form-control", required: true %>
+
+  <%= form.label :Sala %>
+  <%= form.collection_select(:id, @rooms, :id, :name) %>
+
+  <%= form.submit %>
+  <% end %>

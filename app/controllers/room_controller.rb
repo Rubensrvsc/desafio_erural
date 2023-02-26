@@ -1,5 +1,6 @@
 class RoomController < ApplicationController
   before_action :set_users, only: %i[ show ]
+  before_action :check_credentials, only: %i[ show ]
 
   def new
     @room = Room.new
@@ -29,6 +30,14 @@ class RoomController < ApplicationController
 
   end
 
+  def go_room_movie
+    @rooms = Room.all
+  end
+
+  def movie
+    redirect_to show_room_path(id: params[:id], username: params[:user_name], email: params[:user_email])
+  end
+
   private
     def room_params
       params.require(:room).permit(:number, :link)
@@ -37,5 +46,17 @@ class RoomController < ApplicationController
     def set_users
       @users = User.includes(:user_rooms).where.not(users: { id: nil } ).where(user_rooms: { user_id: nil } )
       @user = User.new
+    end
+
+    def check_credentials
+      if !params[:username].present? || !params[:email].present?
+        redirect_to root_path
+      end
+
+      if User.includes(:user_rooms).where(users: { username: params[:username], email: params[:email] } ).where(user_rooms: { room_id: params[:id] } ).exists?
+        return true
+      else
+        redirect_to root_path
+      end
     end
 end

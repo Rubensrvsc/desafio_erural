@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post 'room/create', to: 'room#create'
   get 'room/new', to: 'room#new'
   post 'room/invited', to: 'room#invited'
+  get 'room_view_movie', to: 'room#go_room_movie'
+  post 'movie', to: 'room#movie', as: 'movie'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
