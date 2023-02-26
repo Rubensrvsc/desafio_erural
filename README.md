@@ -13,29 +13,42 @@ Bootstrap
 
 ### Para rodar o projeto
 
+##### Clonar o projeto
+
 ```
 git clone https://github.com/Rubensrvsc/desafio_erural.git
 ```
+##### Entre na pasta
 
 ```
 cd desafio_erural
 ```
 
+##### Construa a imagem
+
 ```
 docker-compose build
 ```
+
+##### Crie o banco de dados
 
 ```
 docker-compose run --rm app rails db:create
 ```
 
+##### Rode as migrações
+
 ```
 docker-compose run --rm app rails db:migrate
 ```
 
+##### Popule o banco de dados com alguns registros
+
 ```
 docker-compose run --rm app rails db:seed
 ```
+
+##### Suba o servidor
 
 ```
 docker-compose up
