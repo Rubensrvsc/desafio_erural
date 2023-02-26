@@ -1,23 +1,36 @@
 
-<div class="container-fluid d-flex justify-content-center">
+<div class="container-fluid d-flex justify-content-center margin-top-cards">
 <div class="row">
     <div class="card mx-3 mt-4" style="width: 300px">
         <div class="card-body">
             <h2 class="card-title">Cadastrar sala</h2>
+            <p class="card-text">Cadastre uma sala</p>
+            <%= link_to "Cadastrar Sala", room_new_path,  class: "btn btn-primary"%>
         </div>
     </div>
 
     <div class="card mx-2 mt-4" style="width: 400px">
         <div class="card-body">
             <h2 class="card-title">Cadastrar Usuário</h2>
+            <p class="card-text">Clique no link e será levado para o formulário de cadastrar usuário</p>
+            <%= link_to "Cadastrar usuário", user_new_path, class: "btn btn-primary" %>
         </div>
     </div>
 
 
     <div class="card mx-3 mt-4" style="width: 300px">
         <div class="card-body">
-            <h2 class="card-title">Ver Filme</h2>
+            <h2 class="card-title">Escolher Filme</h2>
+            <p class="card-text">Aqui é possível ir para o formulário de autorização do filme</p>
+            <%= link_to "Formulário", go_room_movie_path, class: "btn btn-primary" %>
         </div>
     </div>
 </div>
 </div>
+
+<div class="container-fluid d-flex justify-content-center">
+<div class="row">
+    <p class= "h3 mt-3" style="color: green"><%= notice %></p>
+</div>
+</div>
+
