@@ -58,7 +58,7 @@ class RoomController < ApplicationController
       if User.includes(:user_rooms).where(users: { username: params[:username], email: params[:email] } ).where(user_rooms: { room_id: params[:id] } ).exists?
         return true
       else
-        redirect_to root_path, notice: 'Usuário não permitido ver o filme'
+        redirect_to root_path, notice: 'Usuário não permitido ver o vídeo'
       end
     end
 end
