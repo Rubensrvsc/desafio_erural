@@ -1,7 +1,15 @@
+
+
+<div class="container d-flex justify-content-center mt-5">
+        <h1>Cadastre o filme</h1>
+</div>
+
+<div class="container-fluid d-flex justify-content-center">
+<div class="row">
 <%= form_with(model: room, url: room_create_path, method: :post) do |form| %>
   <% if room.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(room.errors.count, "error") %> prohibited this actor from being saved:</h2>
+      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
 
       <ul>
         <% room.errors.each do |error| %>
@@ -11,17 +19,19 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :number, style: "display: block" %>
-    <%= form.text_field :number %>
-  </div>
 
-  <div>
-    <%= form.label :link, style: "display: block" %>
-    <%= form.text_field :link %>
-  </div>
+    <%= form.label :Número_da_Sala, class: "form-label" %>
+    <%= form.text_field :number, class: "form-control", required: true %>
 
+    <%= form.label :Url_do_Youtube, class: "form-label" %>
+    <%= form.text_field :link, class: "form-control", required: true %>
+
+    <%= form.label :Nome_do_Vídeo, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", required: true %>
+    <br>
   <div>
-    <%= form.submit %>
+    <%= form.submit 'Cadastrar Filme', class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>
+</div>
