@@ -13,6 +13,7 @@ class RoomController < ApplicationController
   def show
     @room = Room.find_by(id: params[:id])
     @link = @room.link.split("?v=")[1].split("&")[0]
+    @all_inviteds = UserRoom.where(room_id: params[:id]).count
   end
 
   def invited
@@ -22,10 +23,11 @@ class RoomController < ApplicationController
 
   def create
     @room = Room.new(room_params)
-    respond_to do |format|
-      if @room.save
-        redirect_to index_path
-      end
+
+    if @room.save
+      redirect_to root_path, notice: 'Sala criada com sucesso'
+    else
+      redirect_to root_path, notice: 'Não foi possível criar sala'
     end
 
   end
@@ -56,7 +58,7 @@ class RoomController < ApplicationController
       if User.includes(:user_rooms).where(users: { username: params[:username], email: params[:email] } ).where(user_rooms: { room_id: params[:id] } ).exists?
         return true
       else
-        redirect_to root_path
+        redirect_to root_path, notice: 'Usuário não permitido ver o filme'
       end
     end
 end
