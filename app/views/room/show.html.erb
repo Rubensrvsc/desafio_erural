@@ -1,16 +1,17 @@
-<%= @room.number %>
-<br>
-<iframe width="560" height="315" src=<%= "//www.youtube.com/embed/#{@link}" %> frameborder="0" allowfullscreen></iframe>  
 
+<div class="container d-flex justify-content-center mt-5">
+        <h1>Veja o Filme</h1>
+    </div>
+<div class="container-fluid d-flex justify-content-center mt-5">
+    <div class="card" style="width: 650px;">
+  <iframe height="400" src=<%= "//www.youtube.com/embed/#{@link}" %> frameborder="0" allowfullscreen></iframe>  
+  <div class="card-body">
+    <h5 class="card-title">Número da sala: <%= @room.number %></h5>
+    <p class="h2">Número de convidados: <%= @all_inviteds %></p>
+    <p class="h3">Nome do filme: <%= @room.name %></p>
+  </div>
+</div>    
+</div>
 
-<% if @users.present? %> 
-
-    <%= form_with(model: @user, url: room_invited_path(room_id: @room.id), method: :post) do |f| %>
-        <%= f.label :username %>
-        <%= f.collection_select(:id, @users, :id, :user_form) %>
-
-        <%= f.submit 'Convidar' %>
-    <% end %>
-<% end %> 
 
 
