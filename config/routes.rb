@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get 'room/show/:id', to: 'room#show', as: 'show_room'
   post 'room/create', to: 'room#create'
   get 'room/new', to: 'room#new'
+  post 'register_user', to: 'user#create', as: 'user_create'
+  get 'new_user', to: 'user#new', as: 'user_new'
   post 'room/invited', to: 'room#invited'
-  get 'room_view_movie', to: 'room#go_room_movie'
+  get 'room_view_movie', to: 'room#go_room_movie', as: 'go_room_movie'
   post 'movie', to: 'room#movie', as: 'movie'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
