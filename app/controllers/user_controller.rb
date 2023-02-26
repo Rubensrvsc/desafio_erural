@@ -21,9 +21,9 @@ class UserController < ApplicationController
   def create
     @user = User.new(set_user_params)
     if @user.save
-      redirect_to root_path, notice: 'usuário cadastrado com sucesso com sucesso'
+      redirect_to root_path, notice: 'Usuário cadastrado com sucesso'
     else
-      redirect_to root_path, notice: 'Não foi possivel criar usuário com sucesso'
+      redirect_to root_path, notice: 'Não foi possivel criar usuário'
     end
   end
 
